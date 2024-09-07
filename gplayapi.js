@@ -44,7 +44,7 @@ javaManager.installJava().then(methodResponse => {
 
             // build jar
             console.log("L > Building jar")
-            const command = "./gradlew jar"
+            const command = `JAVA_HOME=${process.cwd()}/java_runtime/jdk-21.0.4/ ./gradlew jar`
             const process1 = spawn(command, [], { shell: true})
 
             process1.stdout.on('data', (data) => {
